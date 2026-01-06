@@ -80,7 +80,7 @@
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/smart-tier.git
+git clone https://github.com/stworchwk/smart-tier.git
 cd smart-tier
 
 # Install dependencies
@@ -178,11 +178,11 @@ budget:
   "mcpServers": {
     "smart-tier": {
       "command": "node",
-      "args": ["C:/path/to/smart-tier/dist/index.js"],
+      "args": ["C:/Users/stwor/smart-tier/dist/index.js"],
       "env": {
         "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
-        "CONFIG_PATH": "C:/path/to/smart-tier/config",
-        "DATA_PATH": "C:/path/to/smart-tier/data"
+        "CONFIG_PATH": "C:/Users/stwor/smart-tier/config",
+        "DATA_PATH": "C:/Users/stwor/smart-tier/data"
       }
     }
   }
@@ -422,7 +422,7 @@ export NO_COLOR=1
 
 Contributions ยินดีต้อนรับ!
 
-1. Fork repo
+1. Fork [stworchwk/smart-tier](https://github.com/stworchwk/smart-tier)
 2. Create feature branch
 3. Make changes
 4. Add tests
@@ -434,10 +434,11 @@ MIT License - see LICENSE file for details
 
 ## 🔗 Links
 
+- [GitHub Repository](https://github.com/stworchwk/smart-tier)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [Anthropic Claude API](https://docs.anthropic.com/)
 - [ZhipuAI GLM API](https://open.bigmodel.cn/)
 
 ---
 
-Made with ❤️ for AI power users who want smart, cost-effective model routing
+Made with ❤️ by [stworchwk](https://github.com/stworchwk) for AI power users who want smart, cost-effective model routing

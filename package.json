@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/smart-tier.git"
+    "url": "https://github.com/stworchwk/smart-tier.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/smart-tier/issues"
+    "url": "https://github.com/stworchwk/smart-tier/issues"
   },
-  "homepage": "https://github.com/your-username/smart-tier#readme",
+  "homepage": "https://github.com/stworchwk/smart-tier#readme",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.35.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
