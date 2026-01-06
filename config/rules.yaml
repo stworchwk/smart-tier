@@ -1,0 +1,132 @@
+# Model Optimizer - Auto-Upgrade Rules
+# =====================================
+
+auto_upgrade_rules:
+  # Keyword-based tier selection
+  keyword_rules:
+    # Architecture and design decisions -> highest tier
+    - name: "architecture_keywords"
+      patterns:
+        - "architecture"
+        - "design decision"
+        - "system design"
+        - "refactor"
+        - "restructure"
+        - "migration"
+      target_tier:
+        2-tier: "critical"
+        3-tier: "tier3"
+      priority: 100
+
+    # Security-related tasks -> highest tier
+    - name: "security_keywords"
+      patterns:
+        - "security"
+        - "authentication"
+        - "authorization"
+        - "vulnerability"
+        - "encryption"
+        - "secret"
+        - "credential"
+      target_tier:
+        2-tier: "critical"
+        3-tier: "tier3"
+      priority: 90
+
+    # Planning and specification -> high tier
+    - name: "planning_keywords"
+      patterns:
+        - "plan"
+        - "specify"
+        - "specification"
+        - "requirements"
+        - "strategy"
+      target_tier:
+        2-tier: "critical"
+        3-tier: "tier3"
+      priority: 80
+
+    # Implementation tasks -> middle tier
+    - name: "implementation_keywords"
+      patterns:
+        - "implement"
+        - "code"
+        - "create"
+        - "add"
+        - "fix"
+        - "debug"
+        - "build"
+      target_tier:
+        2-tier: "primary"
+        3-tier: "tier2"
+      priority: 60
+
+    # Exploration and search -> lowest tier
+    - name: "exploration_keywords"
+      patterns:
+        - "explore"
+        - "search"
+        - "find"
+        - "list"
+        - "what is"
+        - "how to"
+        - "show"
+        - "explain"
+      target_tier:
+        2-tier: "primary"
+        3-tier: "tier1"
+      priority: 50
+
+    # Testing tasks -> middle tier
+    - name: "testing_keywords"
+      patterns:
+        - "test"
+        - "verify"
+        - "validate"
+        - "check"
+      target_tier:
+        2-tier: "primary"
+        3-tier: "tier2"
+      priority: 55
+
+    # Documentation -> low tier
+    - name: "documentation_keywords"
+      patterns:
+        - "document"
+        - "readme"
+        - "comment"
+        - "explain"
+      target_tier:
+        2-tier: "primary"
+        3-tier: "tier1"
+      priority: 40
+
+  # Error-based automatic escalation
+  error_escalation:
+    enabled: true
+    threshold: 3          # Number of errors before escalation
+    window_minutes: 30    # Time window to count errors
+    action: "escalate_one_tier"
+
+  # Cost optimization (de-escalate for simple tasks)
+  cost_optimization:
+    enabled: true
+    simple_task_patterns:
+      - "list files"
+      - "show status"
+      - "get info"
+      - "read file"
+    action: "suggest_lower_tier"
+
+# Monthly budget configuration
+budget:
+  monthly_limit_usd: 100.0
+  alert_thresholds:
+    - percent: 50
+      action: "log_warning"
+    - percent: 80
+      action: "notify_user"
+    - percent: 95
+      action: "require_confirmation"
+    - percent: 100
+      action: "block_high_tier"
